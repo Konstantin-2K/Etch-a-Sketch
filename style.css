@@ -29,6 +29,7 @@ button {
     border-radius: 5px;
     width: 200px;
     height: 40px;
+    font-size: 16px;
 }
 
 .container {
@@ -47,4 +48,16 @@ button {
 .count {
     text-align: center;
     font-size: 20px;
+}
+
+.active {
+    background-color: darkslategray;
+    color: white;
+}
+
+.picker {
+    border: 1px solid grey;
+    border-radius: 5px;
+    width: 200px;
+    height: 40px;
 }
