@@ -34,7 +34,7 @@ button {
 .container {
     display: flex;
     flex-wrap: wrap;
-    background-color: black;
+    background-color: white;
     width: 600px;
     height: 600px;
     box-shadow: 3px 3px 10px grey;
@@ -42,4 +42,9 @@ button {
 
 .block {
     background-color: white;
+}
+
+.count {
+    text-align: center;
+    font-size: 20px;
 }
