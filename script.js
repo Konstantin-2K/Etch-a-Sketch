@@ -10,6 +10,7 @@ let colorPicker = document.querySelector('.picker');
 let paintMode = 'color';
 let colorBtn = document.querySelector('.color');
 let rainbowBtn = document.querySelector('.rainbow');
+let gradeBtn = document.querySelector('.grade');
 let eraserBtn = document.querySelector('.eraser');
 
 colorBtn.onclick = () => {
@@ -22,6 +23,10 @@ rainbowBtn.onclick = () => {
 };
 eraserBtn.onclick = () => {
     paintMode = 'erase';
+    activeButton(paintMode);
+};
+gradeBtn.onclick = () => {
+    paintMode = 'grade';
     activeButton(paintMode);
 };
 
@@ -64,12 +69,15 @@ function changeColor(e) {
         const randomR = Math.floor(Math.random() * 256);
         const randomG = Math.floor(Math.random() * 256);
         const randomB = Math.floor(Math.random() * 256);
-        this.style.cssText += `background: rgb(${randomR}, ${randomG}, ${randomB})`;
+        this.style.cssText += `background: rgb(${randomR}, ${randomG}, ${randomB});`;
     } else if (paintMode === 'erase') {
         this.style.cssText += 'background: white;';
+        this.style.removeProperty('filter');
     } else if (paintMode === 'color') {
-        this.style.cssText += `background: ${colorPicker.value}`;
-    }
+        this.style.cssText += `background: ${colorPicker.value};`;
+    } else if (paintMode === 'grade') {
+        this.style.filter += `brightness(90%)`;
+    } 
 }
 
 function getNewBlockSize() {
@@ -83,6 +91,7 @@ function clearCanvas() {
     blocks = document.querySelectorAll('.block');
     for (let block of blocks) {
         block.style.cssText += 'background: white;';
+        block.style.removeProperty('filter');
     }
 }
 
@@ -91,14 +100,22 @@ function activeButton(mode) {
         rainbowBtn.classList.add('active');
         eraserBtn.classList.remove('active');
         colorBtn.classList.remove('active');
+        gradeBtn.classList.remove('active');
     } else if (mode === 'erase') {
         rainbowBtn.classList.remove('active');
         eraserBtn.classList.add('active');
         colorBtn.classList.remove('active');
+        gradeBtn.classList.remove('active');
     } else if (mode === 'color') {
         rainbowBtn.classList.remove('active');
         eraserBtn.classList.remove('active');
         colorBtn.classList.add('active');
+        gradeBtn.classList.remove('active');
+    } else if (mode === 'grade') {
+        rainbowBtn.classList.remove('active');
+        eraserBtn.classList.remove('active');
+        colorBtn.classList.remove('active');
+        gradeBtn.classList.add('active');
     }
 }
 
