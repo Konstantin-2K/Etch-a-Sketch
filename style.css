@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitter:wght@400;600&family=Sono:wght@400;600;700&display=swap');
+
 html {
     height: 100vh;
 }
@@ -6,15 +8,26 @@ body {
     height: 100vh;
     margin: 0;
     background-color: #d8d9d7;
+    font-family: 'Bitter';
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 10%;
+    font-size: 50px;
+    font-weight: 600;
+    width: 100%;
+    text-align: center;
 }
 
 .content {
-    height: 100%;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     gap: 100px;
-    margin: 0 auto;
+    margin: 90px auto;
     max-width: 1200px;
 }
 
@@ -30,6 +43,8 @@ button {
     width: 200px;
     height: 40px;
     font-size: 16px;
+    font-family: 'Bitter';
+    font-weight: 600;
 }
 
 .container {
